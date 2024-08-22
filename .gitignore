@@ -1,0 +1,4 @@
+recycle-project-venv/
+recycle-project/
+app/__pycache__/
+tests/__pycache__/
