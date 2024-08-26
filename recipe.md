@@ -17,7 +17,7 @@ class RecyclingTracker:
         # Parameters:
         #   None
         # Side effects:
-        #   Initializes an empty list of entries
+        #   Initialises an empty list of entries
         self.entries = []
 
     def add_recycling_entry(self, date, material, amount):
@@ -33,7 +33,7 @@ class RecyclingTracker:
 
     def get_recycling_summary(self):
         # Returns:
-        #   A summary of the total amount recycled by material type
+        #   A summary of the total amount recycled material
         # Side-effects:
         #   Computes and returns a summary of all recycling entries
         pass # No code here yet
@@ -65,3 +65,7 @@ class RecyclingTracker:
         # Side-effects:
         #   Computes and returns the total recycled amount for the given year
         pass # No code here yet
+
+## 3. Create Examples as Tests
+
+_Make a list of examples of how the class will behave in different situations._
