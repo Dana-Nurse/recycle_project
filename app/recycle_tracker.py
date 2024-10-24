@@ -2,7 +2,7 @@ import datetime
 
 class RecyclingTracker:
     def __init__(self):
-        # Initialises an empty list to store recycling entries
+        # Initializes an empty list to store recycling entries
         self.entries = []
 
     def add_recycling_entry(self, date, material, amount):
@@ -30,38 +30,37 @@ class RecyclingTracker:
         # Append the new entry to the entries list
         self.entries.append(new_entry)
 
-
     def get_recycling_summary(self):
-        # Returns:
-        #   A summary of the total amount recycled material
-        # Side-effects:
-        #   Computes and returns a summary of all recycling entries
-        pass # No code here yet
+        # Returns the total amount of each material recycled
+        summary = {}
+        for entry in self.entries:
+            material = entry['material']
+            amount = entry['amount']
+            if material in summary:
+                summary[material] += amount
+            else:
+                summary[material] = amount
+        return summary
 
     def materials_recycled_on_date(self, date):
-        # Parameters:
-        #   date: string representing the date to filter entries (format: YYYY-MM-DD)
-        # Returns:
-        #   A list of recycling entries for the specified date
-        # Side-effects:
-        #   Filters and returns entries for the given date
-        pass # No code here yet
+        # Filters and returns entries for the given date
+        filtered_entries = [entry for entry in self.entries if entry['date'] == date]
+        return filtered_entries
 
     def calculate_monthly_recycling(self, year, month):
-        # Parameters:
-        #   year: integer representing the year
-        #   month: integer representing the month
-        # Returns:
-        #   The total amount recycled in the specified month and year
-        # Side-effects:
-        #   Computes and returns the total recycled amount for the given month and year
-        pass # No code here yet
+        # Computes and returns the total recycled amount for the given month and year
+        total = 0
+        for entry in self.entries:
+            entry_date = datetime.datetime.strptime(entry['date'], '%Y-%m-%d')
+            if entry_date.year == year and entry_date.month == month:
+                total += entry['amount']
+        return total
 
     def calculate_yearly_recycling(self, year):
-        # Parameters:
-        #   year: integer representing the year
-        # Returns:
-        #   The total amount recycled in the specified year
-        # Side-effects:
-        #   Computes and returns the total recycled amount for the given year
-        pass # No code here yet
+        # Computes and returns the total recycled amount for the given year
+        total = 0
+        for entry in self.entries:
+            entry_date = datetime.datetime.strptime(entry['date'], '%Y-%m-%d')
+            if entry_date.year == year:
+                total += entry['amount']
+        return total
